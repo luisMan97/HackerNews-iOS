@@ -15,6 +15,10 @@ class NewsInteractor: NewsInputInteractorProtocol {
     private let manager = APIManager()
     
     func getNewsList() {
+        if getNewsSession() {
+            return
+        }
+        
         manager.callServiceObject(service: .Hits) { [weak self] (data, error) in
             guard let strongSelf = self else {
                 self?.presenter?.error(nil)
@@ -23,7 +27,7 @@ class NewsInteractor: NewsInputInteractorProtocol {
             
             if let error = error {
                 if error.localizedDescription == "No internet connection" {
-                    strongSelf.getSession()
+                    strongSelf.getHitsSession()
                 } else {
                     strongSelf.presenter?.error(error)
                 }
@@ -46,7 +50,6 @@ class NewsInteractor: NewsInputInteractorProtocol {
     private func saveObject(hits: Hits) {
         do {
             let data = try hits.encode()
-            
             UserDefaults.standard.set(data, forKey: "Hits")
             UserDefaults.standard.synchronize()
         } catch let jsonError {
@@ -55,7 +58,7 @@ class NewsInteractor: NewsInputInteractorProtocol {
         }
     }
     
-    private func getSession() {
+    private func getHitsSession() {
         if let data = SessionHelper.getSession(key: "Hits") as? Data {
             do {
                 let hits = try Hits.decode(data: data)
@@ -65,6 +68,21 @@ class NewsInteractor: NewsInputInteractorProtocol {
                 presenter?.error(error)
             }
         }
+    }
+    
+    private func getNewsSession() -> Bool {
+        if let data = SessionHelper.getSession(key: "News") as? Data {
+            do {
+                let hits = try [New].decode(data: data)
+                presenter?.newsListDidFetch(hits)
+                return true
+            } catch let jsonError {
+                let error = NSError(domain: "error", code: 00, userInfo: [NSLocalizedDescriptionKey: "Error serializacion json \(jsonError)"])
+                presenter?.error(error)
+                return false
+            }
+        }
+        return false
     }
 
 }

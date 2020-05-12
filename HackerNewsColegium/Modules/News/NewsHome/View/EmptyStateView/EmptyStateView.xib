@@ -16,21 +16,22 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cP9-bd-W7d">
-                    <rect key="frame" x="67.5" y="219.5" width="240" height="128"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyState" translatesAutoresizingMaskIntoConstraints="NO" id="cP9-bd-W7d">
+                    <rect key="frame" x="67.5" y="183.5" width="240" height="200"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="128" id="djp-38-TWM"/>
+                        <constraint firstAttribute="width" secondItem="cP9-bd-W7d" secondAttribute="height" multiplier="6:5" id="cci-Em-CSS"/>
+                        <constraint firstAttribute="height" constant="200" id="djp-38-TWM"/>
                         <constraint firstAttribute="width" constant="240" id="pG9-4r-axi"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News List Empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWu-Uy-Fgg">
-                    <rect key="frame" x="119.5" y="366" width="136" height="21"/>
+                    <rect key="frame" x="119.5" y="402" width="136" height="21"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pull to refresh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PP-7N-9N3">
-                    <rect key="frame" x="134.5" y="395" width="106.5" height="21"/>
+                    <rect key="frame" x="134.5" y="431" width="106.5" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -48,4 +49,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
     </objects>
+    <resources>
+        <image name="EmptyState" width="308" height="245"/>
+    </resources>
 </document>

@@ -29,4 +29,20 @@ class NewsData {
         return NewData(new: newsList[indexPath.row])
     }
     
+    func remove(at indexPath: IndexPath) {
+        newsList.remove(at: indexPath.row)
+        saveObject(news: newsList)
+    }
+    
+    func saveObject(news: [New]) {
+        do {
+            let data = try news.encode()
+            UserDefaults.standard.set(data, forKey: "News")
+            UserDefaults.standard.synchronize()
+        } catch let jsonError {
+            let error = NSError(domain: "error", code: 00, userInfo: [NSLocalizedDescriptionKey: "Error serializacion json \(jsonError)"])
+            print(error.localizedDescription)
+        }
+    }
+    
 }

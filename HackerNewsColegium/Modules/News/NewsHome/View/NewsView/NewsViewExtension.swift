@@ -37,7 +37,7 @@ extension NewsView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            //newsData.remove(at: indexPath)
+            newsData.remove(at: indexPath)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
