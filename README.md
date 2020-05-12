@@ -4,7 +4,7 @@
 Run git clone that download proyect
 
 ```ruby
-https://github.com/luisMan97/HackerNewsColegium.git
+git clone https://github.com/luisMan97/HackerNewsColegium.git
 ```
 
 #### Third Party Libraries
