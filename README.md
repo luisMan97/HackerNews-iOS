@@ -1,7 +1,7 @@
 # HackerNewsColegium
 
 ## Installation
-Run git clone that download proyect
+Run git clone to download proyect
 
 ```ruby
 git clone https://github.com/luisMan97/HackerNewsColegium.git
