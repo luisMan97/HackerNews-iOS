@@ -2,12 +2,14 @@
 //  APIManagerConstants.swift
 //  HackerNewsColegium
 //
-//  Created by jennifer hasblady anzola ladino on 11/05/20.
+//  Created by Jorge Luis Rivera Ladino on 11/05/20.
 //  Copyright © 2020 Jorge Luis Rivera Ladino. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class APIManagerConstants: NSObject {
-
+enum ApiManagerConstants {
+    enum keys {
+        static let endpoint = "http://hn.algolia.com/api/v1/"
+    }
 }

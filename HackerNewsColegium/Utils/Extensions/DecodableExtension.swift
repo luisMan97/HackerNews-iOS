@@ -2,12 +2,16 @@
 //  DecodableExtension.swift
 //  HackerNewsColegium
 //
-//  Created by jennifer hasblady anzola ladino on 11/05/20.
+//  Created by Jorge Luis Rivera Ladino on 11/05/20.
 //  Copyright © 2020 Jorge Luis Rivera Ladino. All rights reserved.
 //
 
 import UIKit
 
-class DecodableExtension: NSObject {
-
+extension Decodable {
+    static func decode(data: Data) throws -> Self {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return try decoder.decode(Self.self, from: data)
+    }
 }

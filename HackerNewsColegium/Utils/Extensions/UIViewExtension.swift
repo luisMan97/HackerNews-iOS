@@ -40,4 +40,21 @@ extension UIView {
         
     }
     
+    // MARK: - Load nib for cell
+    
+    public class var nib: UINib? {
+        if Bundle.main.path(forResource: nibName, ofType: "nib") != nil {
+            return UINib(nibName: nibName, bundle: nil)
+        } else {
+            return nil
+        }
+    }
+    
+    // MARK: - Load nib
+    
+    public class var nibName: String {
+        let name = String(describing: self).components(separatedBy: ".").first ?? ""
+        return name
+    }
+    
 }

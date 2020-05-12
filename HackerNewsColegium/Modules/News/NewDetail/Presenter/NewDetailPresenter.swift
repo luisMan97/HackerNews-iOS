@@ -1,5 +1,5 @@
 //
-//  NewPresenter.swift
+//  NewDetailPresenter.swift
 //  HackerNewsColegium
 //
 //  Created by Jorge Luis Rivera Ladino on 11/05/20.
@@ -11,7 +11,7 @@ import UIKit
 class NewDetailPresenter {
     
     weak var view: NewDetailViewProtocol?
-    var routing: NewRouting?
+    var routing: NewDetailRouting?
     var new: New?
     
     func getNew() {

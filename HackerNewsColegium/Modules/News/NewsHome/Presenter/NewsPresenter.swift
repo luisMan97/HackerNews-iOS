@@ -2,7 +2,7 @@
 //  NewsPresenter.swift
 //  HackerNewsColegium
 //
-//  Created by jennifer hasblady anzola ladino on 11/05/20.
+//  Created by Jorge Luis Rivera Ladino on 11/05/20.
 //  Copyright © 2020 Jorge Luis Rivera Ladino. All rights reserved.
 //
 
@@ -12,7 +12,7 @@ class NewsPresenter {
     
     weak var view: NewsViewProtocol?
     var interactor: NewsInputInteractorProtocol?
-    var routing: Routing?
+    var routing: NewsRouting?
     
     func loadNews() {
         interactor?.getNewsList()
@@ -22,16 +22,4 @@ class NewsPresenter {
         routing?.pushToNewDetail(with: new, from: view)
     }
 
-}
-
-extension NewsPresenter: NewsOutputInteractorProtocol {
-    
-    func newsListDidFetch(_ newsList: [New]) {
-        view?.showNews(newsList)
-    }
-    
-    func error(_ error: Error?) {
-        view?.showError(error)
-    }
-    
 }

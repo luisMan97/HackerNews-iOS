@@ -1,5 +1,5 @@
 //
-//  NewsViewModel.swift
+//  NewsData.swift
 //  HackerNewsColegium
 //
 //  Created by Jorge Luis Rivera Ladino on 11/05/20.
@@ -25,8 +25,8 @@ class NewsData {
         return newsList[index]
     }
     
-    func item(at indexPath: IndexPath) -> NewViewModel {
-        return NewViewModel(new: newsList[indexPath.row])
+    func item(at indexPath: IndexPath) -> NewData {
+        return NewData(new: newsList[indexPath.row])
     }
     
 }

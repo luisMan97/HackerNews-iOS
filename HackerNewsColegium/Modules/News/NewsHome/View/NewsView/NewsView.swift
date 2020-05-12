@@ -1,5 +1,5 @@
 //
-//  NewsTableView.swift
+//  NewsView.swift
 //  HackerNewsColegium
 //
 //  Created by Jorge Luis Rivera Ladino on 11/05/20.
@@ -21,7 +21,7 @@ class NewsView: UIView {
     }()
     
     fileprivate(set) lazy var emptyStateView: UIView = {
-        guard let view = Bundle.main.loadNibNamed("EmptyState", owner: nil, options: [:])?.first as? UIView else {
+        guard let view = Bundle.main.loadNibNamed("EmptyStateView", owner: nil, options: [:])?.first as? UIView else {
             return UIView()
         }
         return view

@@ -1,5 +1,5 @@
 //
-//  NewViewController.swift
+//  NewDetailViewController.swift
 //  HackerNewsColegium
 //
 //  Created by Jorge Luis Rivera Ladino on 11/05/20.
@@ -7,22 +7,24 @@
 //
 
 import UIKit
+import WebKit
 
-class NewDetailViewController: UIViewController {
+class NewDetailViewController: UIViewController, WKUIDelegate {
     
-    var presenter: NewPresenter!
+    var presenter: NewDetailPresenter!
+    var newWKWebView: WKWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addWKWebView()
         presenter.getNew()
     }
     
-}
-
-extension NewDetailViewController: NewDetailViewProtocol {
-    
-    func showTitleAndWebView(_ new: New) {
-        title = new.title != nil ? new.title : new.storyTitle
+    private func addWKWebView() {
+        newWKWebView = WKWebView(frame: view.frame, configuration: WKWebViewConfiguration())
+        newWKWebView.uiDelegate = self
+        newWKWebView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(newWKWebView)
     }
     
 }

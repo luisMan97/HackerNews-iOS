@@ -8,7 +8,7 @@
 
 import UIKit
 
-class New: Decodable {
+class New: Codable {
     let title: String? 
     let storyTitle: String?
     let createdAt: String?

@@ -1,5 +1,5 @@
 //
-//  NewsTableViewExtension.swift
+//  NewsViewExtension.swift
 //  HackerNewsColegium
 //
 //  Created by Jorge Luis Rivera Ladino on 11/05/20.

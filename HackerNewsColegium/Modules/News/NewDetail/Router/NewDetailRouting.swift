@@ -1,5 +1,5 @@
 //
-//  NewViewRouting.swift
+//  NewDetailRouting.swift
 //  HackerNewsColegium
 //
 //  Created by Jorge Luis Rivera Ladino on 11/05/20.
