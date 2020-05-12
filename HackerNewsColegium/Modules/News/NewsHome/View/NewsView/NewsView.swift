@@ -31,6 +31,7 @@ class NewsView: UIView {
     var refreshControl = UIRefreshControl()
     
     var goToNewDetail: ((New) -> ())?
+    var getData: (() -> ())?
     
     // MARK: Initialization
     
@@ -65,8 +66,7 @@ class NewsView: UIView {
     }
     
     @objc func refresh(_ sender: AnyObject) {
-        tableView.reloadData()
-        refreshControl.endRefreshing()
+        getData?()
     }
 
 }

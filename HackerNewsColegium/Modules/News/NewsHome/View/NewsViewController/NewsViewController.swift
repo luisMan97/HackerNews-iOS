@@ -24,17 +24,21 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
         title = "News"
         setupNewsView()
-        presenter.loadNews()
     }
     
     private func setupNewsView() {
         newsView = NewsView(frame: view.frame, newsData: NewsData(news: [New]()))
         newsView.goToNewDetail = goToNewDetail
+        newsView.getData = getData
         view.addSubview(newsView)
     }
     
     func goToNewDetail(_ new: New) -> () {
         presenter?.showNewSelection(with: new, from: self)
+    }
+    
+    func getData() -> () {
+        presenter.loadNews()
     }
 
 }

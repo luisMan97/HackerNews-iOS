@@ -21,6 +21,7 @@ extension NewsViewController: NewsViewProtocol {
     func showNews(_ news: [New]) {
         newsView.newsData = NewsData(news: news)
         DispatchQueue.main.async {
+            self.newsView.refreshControl.endRefreshing()
             self.newsView.tableView.reloadData()
         }
     }
