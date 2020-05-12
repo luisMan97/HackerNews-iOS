@@ -8,4 +8,4 @@ git clone https://github.com/luisMan97/HackerNewsColegium.git
 ```
 
 #### Third Party Libraries
-The project does not use third party libraries, don't worry :)
+The project does not use third party libraries. Don't cocoapods, don't cartage, don't worry :)
