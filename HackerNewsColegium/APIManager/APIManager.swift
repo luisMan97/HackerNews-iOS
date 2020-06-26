@@ -28,7 +28,13 @@ class APIManager {
     }
     
     private func call(service: Router, completion: CallServiceHandlerWithData) {
-        let session = URLSession(configuration: .default).dataTask(with: service.request) { [weak self] (data, response, error) -> Void in
+        guard let request = service.request else {
+            let error = NSError(domain: "error", code: 404, userInfo: [NSLocalizedDescriptionKey: "Bad URL"])
+            completion?(nil, error)
+            return
+        }
+        
+        let session = URLSession(configuration: .default).dataTask(with: request) { [weak self] (data, response, error) -> Void in
             if let error = error {
                 self?.logError(error)
                 completion?(nil, error)
