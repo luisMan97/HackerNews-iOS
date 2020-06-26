@@ -26,12 +26,12 @@ enum Router {
         }
     }
     
-    var request: URLRequest {
+    var request: URLRequest? {
         switch self {
         case .Hits:
             
             guard let url = NSURL(string: ApiManagerConstants.keys.endpoint + path) else {
-                return URLRequest(url: URL(fileURLWithPath: ""))
+                return nil
             }
             var mutableURLRequest = URLRequest(url: url as URL)
             mutableURLRequest.httpMethod = method
